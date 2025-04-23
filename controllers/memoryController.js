@@ -1,6 +1,6 @@
 const Save = require('../models/save');
 
-
+// Response standard message
 function responseMessage( status, message, data )
 {
     return { 
@@ -10,6 +10,7 @@ function responseMessage( status, message, data )
     };
 }
 
+// Save game, added standard message
 exports.saveGameData = async (req, res) => {
     const { userID, gameDate, failed, difficulty, completed, timeTaken } = req.body;
 
@@ -40,7 +41,7 @@ exports.saveGameData = async (req, res) => {
 };
 
 
-
+// Query games played by user, maximum 100, order by descending game date
 exports.listGameData = async (req, res) => {
     try
     {
